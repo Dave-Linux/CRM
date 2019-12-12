@@ -1,6 +1,7 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Employee extends Call{
+public class Employee{
 	
 	private int employeeID;
 	private String name;
@@ -10,7 +11,7 @@ public class Employee extends Call{
 	}
 	
 	public Employee(int employeeID) {
-		this.employeeID = employeeID;
+		this.setEmployeeID(employeeID);
 	}
 
 	public String getName() {
@@ -28,4 +29,25 @@ public class Employee extends Call{
 	public void setHiredDate(Date hiredDate) {
 		this.hiredDate = hiredDate;
 	}
+
+	public int getEmployeeID() {
+		return employeeID;
+	}
+
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
+	}
+	public String dateToString(Date date) {
+		 SimpleDateFormat simpleFormat = new SimpleDateFormat("MM/dd/yyyy");
+		 String strDate = simpleFormat.format(date);
+		 return strDate;
+		 
+	}
+	
+	
+	@Override
+	public String toString() {
+		return employeeID + "," + name + "," + dateToString(hiredDate);
+	}
 }
+
